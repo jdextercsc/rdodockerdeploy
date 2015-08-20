@@ -59,10 +59,10 @@
   tags:
     - docker
 
-- name: installing cloned python-pbr module
-  command: pyhton setup.py install
+- name: installing cloned python-pbr module RHELOSP
+  command: python setup.py install
   args:
-    chdir: pbr
+    chdir: /root/pbr
   when: openstack_bits == 'rhelosp'
   tags:
     - docker
