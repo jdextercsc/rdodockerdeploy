@@ -9,3 +9,23 @@
     - allinone
     - docker
     - testcontainer
+
+- name: deploy openstack from packstacktest
+  hosts: openStack
+  max_fail_percentage: 0
+  roles:
+    - rhsm
+    - allinone
+
+- name: nova-docker hypervisor conversion
+  hosts: nova-docker
+  max_fail_percentage: 0
+  roles:
+    - docker-compute
+
+- name: nova-docker hypervisor conversion to controller
+  hosts: controller
+  max_fail_percentage: 0
+  roles:
+    - docker-control
+    - testcontainer
